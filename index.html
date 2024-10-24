@@ -16,7 +16,11 @@
 <body>
 <!-- Navbar -->
 <nav class="navbar navbar-expand-lg">
-  <div class="container"> <a class="navbar-brand navbar-logo" href="#"> <img src="images/logo.png" alt="logo" class="logo-1"> </a>
+  <div class="container"> 
+    <!-- <a class="navbar-brand navbar-logo" href="#">
+      
+    </a> -->
+    <img src="images/logo.png" alt="" style="height:55px; width: auto;">
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"> <span class="fas fa-bars"></span> </button>
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav ml-auto">
@@ -32,6 +36,25 @@
   </div>
 </nav>
 <!-- End Navbar --> 
+
+<!-------Video Start------->
+<section id="video-section-nasa" class="video-section prelative text-center white" style="display: none;">
+  <div class="section-padding video-overlay">
+    <div class="container">
+      <h3>Watch Video of the Day</h3>
+      <i class="fa fa-play" id="video-icon" aria-hidden="true"></i>
+      <div class="video-popup">
+        <div class="video-src">
+          <div class="iframe-src">
+            <iframe id="iframe-nasa" allowfullscreen></iframe>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-------Video End-------> 
+
 <!-------Banner Start------->
 <section class="banner" data-scroll-index='0'>
   <div class="banner-overlay">
@@ -39,16 +62,36 @@
       <div class="row">
         <div class="col-md-8 col-sm-12">
           <div class="banner-text">
-            <h2 class="white">Best App Website Template</h2>
-            <h6 class="white">This awesome template designed by <a href="http://w3Template.com" target="_blank" rel="dofollow" class="weblink">W3 Template</a>.</h6>
-            <p class="banner-text white">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur hendrerit neque massa, sit amet tristique ante porta ut. In sodales et justo vel vulputate. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.</p>
-            <ul>
+            <h2 class="white"><span>Astronomy Picture of the Day.</span> Please enter a date</h2>
+              <div id="date-div">
+                <input type="date" class="date" id="input-date"> 
+                <button class="date btn btn-outline-dark" id="button-date" style="margin: 10%;">Get Media</button>
+              </div>
+            <!-- <h6 class="white">This awesome template designed by <a href="http://w3Template.com" target="_blank" rel="dofollow" class="weblink">W3 Template</a>.</h6> -->
+            
+              <div id="nasa-discription" class="nasa-resourse">
+            <!-- <h3>Explanation</h3> -->
+                <h4 id="title-nasa"></h4>
+                <p class="banner-text white" id="explain">Welcome to NASA's Space Exploration! Join us as we embark on an incredible journey through the cosmos, discovering the wonders of the universe and the mysteries of space. Together, we can explore new frontiers and unlock the secrets of the stars.</p>
+              </div>
+            
+            <!-- <ul>
               <li><a href="#"><img src="images/appstore.png" class="wow fadeInUp" data-wow-delay="0.4s"/></a></li>
               <li><a href="#"><img src="images/playstore.png" class="wow fadeInUp" data-wow-delay="0.7s"/></a></li>
-            </ul>
+            </ul> -->
           </div>
         </div>
-        <div class="col-md-4 col-sm-12"> <img src="images/iphone-screen.png" class="img-fluid wow fadeInUp"/> </div>
+        <div class="col-md-4 col-sm-12"> 
+          <!-- <img src="images/iphone-screen.png" class="img-fluid wow fadeInUp"/> -->
+          <section id="section-2">
+            <div id="nasa-media" class="nasa-resourse">
+              <div class="row text-center">
+                    <img src="images/NASAbg.webp" class="img-fluid opacity-75" id="img-nasa" style="height: 80%; margin-top: 20%; border-radius: 10px;"> <!-- Added margin-top, border-radius, and opacity -->
+              </div> 
+                <!-- <iframe frameborder="0" ></iframe> -->
+            </div>
+          </section>
+        </div>
       </div>
     </div>
   </div>
@@ -58,7 +101,7 @@
 
 <!-------About End------->
 
-<section class="about section-padding prelative" data-scroll-index='1'>
+<!-- <section class="about section-padding prelative" data-scroll-index='1'>
   <div class="container">
     <div class="row">
       <div class="col-md-12">
@@ -92,26 +135,10 @@
       </div>
     </div>
   </div>
-</section>
+</section> -->
 <!-------About End-------> 
 
-<!-------Video Start------->
-<section class="video-section prelative text-center white">
-  <div class="section-padding video-overlay">
-    <div class="container">
-      <h3>Watch Now</h3>
-      <i class="fa fa-play" id="video-icon" aria-hidden="true"></i>
-      <div class="video-popup">
-        <div class="video-src">
-          <div class="iframe-src">
-            <iframe src="https://www.youtube.com/embed/Ku52zNnft8k?rel=0&amp;showinfo=0" allowfullscreen></iframe>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-<!-------Video End-------> 
+
 
 <!-------Features Start------->
 <section class="feature section-padding" data-scroll-index='2'>
