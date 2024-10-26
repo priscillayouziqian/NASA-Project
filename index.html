@@ -62,17 +62,19 @@
       <div class="row">
         <div class="col-md-8 col-sm-12">
           <div class="banner-text">
-            <h2 class="white"><span>Astronomy Picture of the Day.</span> Please enter a date</h2>
+            <h2 class="white">Please enter a date</h2>
               <div id="date-div">
                 <input type="date" class="date" id="input-date"> 
                 <button class="date btn btn-outline-dark" id="button-date" style="margin: 10%;">Get Media</button>
               </div>
+              
             <!-- <h6 class="white">This awesome template designed by <a href="http://w3Template.com" target="_blank" rel="dofollow" class="weblink">W3 Template</a>.</h6> -->
             
               <div id="nasa-discription" class="nasa-resourse">
+                <h3 class="white">APOD - Astronomy Picture of the Day</h3>
             <!-- <h3>Explanation</h3> -->
                 <h4 id="title-nasa"></h4>
-                <p class="banner-text white" id="explain">Welcome to NASA's Space Exploration! Join us as we embark on an incredible journey through the cosmos, discovering the wonders of the universe and the mysteries of space. Together, we can explore new frontiers and unlock the secrets of the stars.</p>
+                <p class="banner-text white" id="explain" style="margin-bottom: 20%;">Welcome to NASA's Space Exploration! Join us as we embark on an incredible journey through the cosmos, discovering the wonders of the universe and the mysteries of space. Together, we can explore new frontiers and unlock the secrets of the stars.</p>
               </div>
             
             <!-- <ul>
@@ -95,7 +97,7 @@
       </div>
     </div>
   </div>
-  <span class="svg-wave"> <img class="svg-hero" src="images/applight-wave.svg"> </span> </section>
+  <span class="svg-wave"> <img class="svg-hero" src="images/applight-wave.svg" style="width: 100%;"> </span> </section>
 
 <!-------Banner End-------> 
 
@@ -146,60 +148,64 @@
     <div class="row">
       <div class="col-md-12">
         <div class="sectioner-header text-center">
-          <h3>Features</h3>
+          <h3>EPIC - Earth Polychromatic Imaging Camera</h3>
           <span class="line"></span>
-          <p>Sed quis nisi nisi. Proin consectetur porttitor dui sit amet viverra. Fusce sit amet lorem faucibus, vestibulum ante in, pharetra ante.</p>
+          <p>Image was taken by NASA's EPIC camera onboard the NOAA DSCOVR spacecraft <span class="chosen-date" style="display: inline-block;"></span></p>
         </div>
         <div class="section-content text-center">
           <div class="row">
             <div class="col-md-4 col-sm-12">
               <div class="media single-feature wow fadeInUp" data-wow-delay="0.2s">
                 <div class="media-body text-right media-right-margin">
-                  <h5>Fast Processing</h5>
-                  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididugnt ut labore</p>
+                  <h5>Geographical coordinates that the satellite is looking at</h5>
+                  
+                  <p id="centroid-coordinates"></p>
                 </div>
                 <div class="media-right icon-border"> <span class="fa fa-bolt" aria-hidden="true"></span> </div>
               </div>
               <div class="media single-feature wow fadeInUp" data-wow-delay="0.4s">
                 <div class="media-body text-right media-right-margin">
-                  <h5>Low Power Consuming</h5>
-                  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididugnt ut labore</p>
+                  <h5>Position of the satellite in space</h5>
+                  
+                  <p id="dscovr"></p>
                 </div>
                 <div class="media-right icon-border"> <span class="fa fa-battery-full" aria-hidden="true"></span> </div>
               </div>
-              <div class="media single-feature wow fadeInUp" data-wow-delay="0.6s">
+              <!-- <div class="media single-feature wow fadeInUp" data-wow-delay="0.6s">
                 <div class="media-body text-right media-right-margin">
                   <h5>Wifi Compatibility</h5>
                   <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididugnt ut labore</p>
                 </div>
                 <div class="media-right icon-border"> <span class="fa fa-wifi" aria-hidden="true"></span> </div>
-              </div>
+              </div> -->
             </div>
             <div class="col-md-4 d-none d-md-block d-lg-block">
-              <div class="feature-mobile"> <img src="images/iphone-screen-with-shadow.png" class="img-fluid wow fadeInUp"/> </div>
+              <div class="feature-mobile"> 
+                <img src="images/earch-img.png" class="img-fluid wow fadeInUp" id="earth-img"/> <!-- Added id for dynamic image -->
+              </div>
             </div>
             <div class="col-md-4 col-sm-12">
               <div class="media single-feature wow fadeInUp" data-wow-delay="0.2s">
                 <div class="media-left icon-border media-right-margin"> <span class="fa fa-check-double" aria-hidden="true"></span> </div>
                 <div class="media-body text-left">
-                  <h5>Regular Updates</h5>
-                  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididugnt ut labore</p>
+                  <h5>Lunar Position</h5>
+                  <p id="lunar"></p>
                 </div>
               </div>
               <div class="media single-feature wow fadeInUp" data-wow-delay="0.4s">
                 <div class="media-left icon-border media-right-margin"> <span class="fa fa-dollar-sign" aria-hidden="true"></span> </div>
                 <div class="media-body text-left">
-                  <h5>Save Money</h5>
-                  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididugnt ut labore</p>
+                  <h5>Position of the sun in space</h5>
+                  <p id="sun"></p>
                 </div>
               </div>
-              <div class="media single-feature wow fadeInUp" data-wow-delay="0.6s">
+              <!-- <div class="media single-feature wow fadeInUp" data-wow-delay="0.6s">
                 <div class="media-left icon-border media-right-margin"> <span class="fa fa-hdd" aria-hidden="true"></span> </div>
                 <div class="media-body text-left">
                   <h5>Unlimited Storage</h5>
                   <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididugnt ut labore</p>
                 </div>
-              </div>
+              </div> -->
             </div>
           </div>
         </div>

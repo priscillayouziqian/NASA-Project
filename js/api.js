@@ -7,6 +7,7 @@ async function getFetch() {
     console.log(choice);
 
     const url = `https://api.nasa.gov/planetary/apod?api_key=${apiKey}&date=${choice}`;
+    const earthUrl = `https://api.nasa.gov/EPIC/api/natural/date/${choice}?api_key=${apiKey}`
 
     try {
         const res = await fetch(url);
@@ -14,9 +15,31 @@ async function getFetch() {
         console.log(data);
         displayMedia(data)
         
+        const earthRes = await fetch(earthUrl); // Fetch data for the second API
+        const earthData = await earthRes.json();
+        console.log(earthData);
+        displayEarth(earthData);
+        
     } catch (err) {
         console.log(`error ${err}`);
     }
+}
+
+function displayEarth(data) {
+    document.querySelector('.chosen-date').innerText = data[0].date;
+    
+    const setInnerHTML = (selector, coords) => {
+        // Add CSS to remove bullet points
+        document.querySelector(selector).innerHTML = `<ul style="list-style-type: none;">${coords.map(c => `<li>${c}</li>`).join('')}</ul>`;
+    };
+
+    setInnerHTML('#centroid-coordinates', [
+        `Latitude: ${data[0].centroid_coordinates.lat}`,
+        `Longitude: ${data[0].centroid_coordinates.lon}`
+    ]);
+    ['dscovr', 'lunar', 'sun'].forEach(key => 
+        setInnerHTML(`#${key}`, ['x', 'y', 'z'].map(coord => `${coord.toUpperCase()}: ${data[0][`${key}_j2000_position`][coord]}`))
+    );
 }
 
 function displayMedia(data){
