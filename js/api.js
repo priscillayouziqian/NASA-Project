@@ -1,14 +1,16 @@
 const apiKey = process.env.API_KEY;
 
-document.querySelector('#button-date').addEventListener('click', getFetch);
+document.addEventListener('DOMContentLoaded', () => {
+    document.querySelector('#button-date').addEventListener('click', getFetch);
+});
 
 async function getFetch() {
     const choice = document.querySelector('#input-date').value;
     console.log(choice);
 
     const url = `https://api.nasa.gov/planetary/apod?api_key=${apiKey}&date=${choice}`;
-    const earthUrl = `https://api.nasa.gov/EPIC/api/natural/date/${choice}?api_key=${apiKey}`
-
+    const earthUrl = `https://api.nasa.gov/EPIC/api/natural/date/${choice}?api_key=${apiKey}`;
+    
     try {
         const res = await fetch(url);
         const data = await res.json();
@@ -19,27 +21,66 @@ async function getFetch() {
         const earthData = await earthRes.json();
         console.log(earthData);
         displayEarth(earthData);
+
+        
+        fetchAllMarsPhotos(); 
         
     } catch (err) {
         console.log(`error ${err}`);
     }
 }
 
-function displayEarth(data) {
-    document.querySelector('.chosen-date').innerText = data[0].date;
+const getMarsPhotos = async (camera) => {
+    const marsUrl = `https://api.nasa.gov/mars-photos/api/v1/rovers/curiosity/photos?sol=1000&camera=${camera}&api_key=${apiKey}`;
     
-    const setInnerHTML = (selector, coords) => {
-        // Add CSS to remove bullet points
-        document.querySelector(selector).innerHTML = `<ul style="list-style-type: none;">${coords.map(c => `<li>${c}</li>`).join('')}</ul>`;
-    };
+    try {
+        const marsRes = await fetch(marsUrl); // Fetch data for the specified camera
+        const marsData = await marsRes.json();
+        console.log(marsData);
+        return marsData; // Return the data for further processing if needed
+    } catch (err) {
+        console.log(`error ${err}`);
+    }
+};
 
-    setInnerHTML('#centroid-coordinates', [
-        `Latitude: ${data[0].centroid_coordinates.lat}`,
-        `Longitude: ${data[0].centroid_coordinates.lon}`
-    ]);
-    ['dscovr', 'lunar', 'sun'].forEach(key => 
-        setInnerHTML(`#${key}`, ['x', 'y', 'z'].map(coord => `${coord.toUpperCase()}: ${data[0][`${key}_j2000_position`][coord]}`))
-    );
+// Call all cameras at the same time
+const cameras = ['fhaz', 'rhaz', 'chemcam'];
+const fetchAllMarsPhotos = async () => {
+    const results = await Promise.all(cameras.map(camera => getMarsPhotos(camera)));
+    console.log(results); // Log all results from the different cameras
+
+    // Update the image sources for mars-img1, mars-img2, and mars-img3
+    document.getElementById('mars-img1').src = results[0].photos[0].img_src; // First camera
+    document.getElementById('mars-img2').src = results[1].photos[0].img_src; // Second camera
+    document.getElementById('mars-img3').src = results[2].photos[0].img_src; // Third camera
+
+    document.getElementById('mars-section').style.display = "block"; // Hide
+};
+
+
+function displayEarth(data) {
+    try {
+        if (data.length === 0) {
+            throw new Error("No EPIC data available for the selected date.");
+        }
+        
+        document.querySelector('.chosen-date').innerText = data[0].date;
+
+        const setInnerHTML = (selector, coords) => {
+            // Add CSS to remove bullet points
+            document.querySelector(selector).innerHTML = `<ul style="list-style-type: none;">${coords.map(c => `<li>${c}</li>`).join('')}</ul>`;
+        };
+
+        setInnerHTML('#centroid-coordinates', [
+            `Latitude: ${data[0].centroid_coordinates.lat}`,
+            `Longitude: ${data[0].centroid_coordinates.lon}`
+        ]);
+        ['dscovr', 'lunar', 'sun'].forEach(key => 
+            setInnerHTML(`#${key}`, ['x', 'y', 'z'].map(coord => `${coord.toUpperCase()}: ${data[0][`${key}_j2000_position`][coord]}`))
+        );
+    } catch (err) {
+        console.log(`Error: ${err.message}`);
+    }
 }
 
 function displayMedia(data){
