@@ -24,13 +24,13 @@
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"> <span class="fas fa-bars"></span> </button>
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav ml-auto">
-        <li class="nav-item"> <a class="nav-link" href="" data-scroll-nav="0">Home</a> </li>
-        <li class="nav-item"> <a class="nav-link" href="#" data-scroll-nav="1">About</a> </li>
-        <li class="nav-item"> <a class="nav-link" href="#" data-scroll-nav="2">Features</a> </li>
-        <li class="nav-item"> <a class="nav-link" href="#" data-scroll-nav="3">Team</a> </li>
-        <li class="nav-item"> <a class="nav-link" href="#" data-scroll-nav="4">Testimonials</a> </li>
-        <li class="nav-item"> <a class="nav-link" href="#" data-scroll-nav="5">Faq</a> </li>
-        <li class="nav-item"> <a class="nav-link" href="#" data-scroll-nav="6">Contact</a> </li>
+        <li class="nav-item"> <a class="nav-link" href="" data-scroll-nav="0">APOD</a> </li>
+        <!-- <li class="nav-item"> <a class="nav-link" href="#" data-scroll-nav="1">About</a> </li> -->
+        <li class="nav-item"> <a class="nav-link" href="#" data-scroll-nav="2">EPIC</a> </li>
+        <li class="nav-item"> <a class="nav-link" href="#" data-scroll-nav="3">MARS</a> </li>
+        <!-- <li class="nav-item"> <a class="nav-link" href="#" data-scroll-nav="4">Testimonials</a> </li> -->
+        <li class="nav-item"> <a class="nav-link" href="#" data-scroll-nav="5">trivia</a> </li>
+        <!-- <li class="nav-item"> <a class="nav-link" href="#" data-scroll-nav="6">Contact</a> </li> -->
       </ul>
     </div>
   </div>
@@ -89,6 +89,7 @@
             <div id="nasa-media" class="nasa-resourse">
               <div class="row text-center">
                     <img src="images/NASAbg.webp" class="img-fluid opacity-75" id="img-nasa" style="height: 80%; margin-top: 20%; border-radius: 10px;"> <!-- Added margin-top, border-radius, and opacity -->
+                    <img src="images/video-on-top.jpg" class="img-fluid opacity-75" id="img-video-on-top" style="height: 80%; margin-top: 20%; border-radius: 10px; display: none;">
               </div> 
                 <!-- <iframe frameborder="0" ></iframe> -->
             </div>
@@ -144,6 +145,12 @@
 
 <!-------Features Start------->
 <section class="feature section-padding" data-scroll-index='2'>
+  <div id="warning-section" class="alert alert-warning alert-dismissible fade show" role="alert" style="display: none; text-align: center;">
+    <strong>Opps!</strong> Earth data on the chosen date is currently not available.
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
   <div class="container">
     <div class="row">
       <div class="col-md-12">
@@ -161,7 +168,7 @@
                   
                   <p id="centroid-coordinates"></p>
                 </div>
-                <div class="media-right icon-border"> <span class="fa fa-bolt" aria-hidden="true"></span> </div>
+                <div class="media-right icon-border"> <span class="fa fa-cloud" aria-hidden="true"></span> </div>
               </div>
               <div class="media single-feature wow fadeInUp" data-wow-delay="0.4s">
                 <div class="media-body text-right media-right-margin">
@@ -169,7 +176,7 @@
                   
                   <p id="dscovr"></p>
                 </div>
-                <div class="media-right icon-border"> <span class="fa fa-battery-full" aria-hidden="true"></span> </div>
+                <div class="media-right icon-border"> <span class="fa fa-space-shuttle" aria-hidden="true"></span> </div>
               </div>
               <!-- <div class="media single-feature wow fadeInUp" data-wow-delay="0.6s">
                 <div class="media-body text-right media-right-margin">
@@ -186,14 +193,14 @@
             </div>
             <div class="col-md-4 col-sm-12">
               <div class="media single-feature wow fadeInUp" data-wow-delay="0.2s">
-                <div class="media-left icon-border media-right-margin"> <span class="fa fa-check-double" aria-hidden="true"></span> </div>
+                <div class="media-left icon-border media-right-margin"> <span class="fa fa-adjust" aria-hidden="true"></span> </div>
                 <div class="media-body text-left">
                   <h5>Lunar Position</h5>
                   <p id="lunar"></p>
                 </div>
               </div>
               <div class="media single-feature wow fadeInUp" data-wow-delay="0.4s">
-                <div class="media-left icon-border media-right-margin"> <span class="fa fa-dollar-sign" aria-hidden="true"></span> </div>
+                <div class="media-left icon-border media-right-margin"> <span class="fa fa-spinner" aria-hidden="true"></span> </div>
                 <div class="media-body text-left">
                   <h5>Sun Position</h5>
                   <p id="sun"></p>
@@ -215,7 +222,44 @@
 </section>
 <!-------Features End-------> 
 
+<!-------Team Start------->
+<section class="team section-padding" data-scroll-index='3'>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="sectioner-header text-center">
+          <h3>Mars Rover Curiosity Photos</h3>
+          <span class="line"></span>
+          <p class="white">Curiosity launched on Nov 26th, 2011, and landed on Aug 6th, 2012. Photos were taken on its 1000th Martian sol exploring Mars with 3 different cameras.</p>
+        </div>
+        <div class="section-content text-center" id="mars-section" style="display: none;">
+          <div class="row">
+            <div class="col-md-4">
+              <div class="team-detail wow bounce" data-wow-delay="0.2s"> <img id="mars-img1" class="img-fluid"/>
+                <h4>Front Hazard Avoidance Camera</h4>
+                <!-- <p>Marketing Specialist</p> -->
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="team-detail wow bounce" data-wow-delay="0.4s"> <img id="mars-img2" class="img-fluid"/>
+                <h4>Rear Hazard Avoidance Camera</h4>
+                <!-- <p>CEO & Founder</p> -->
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="team-detail wow bounce" data-wow-delay="0.6s"> <img id="mars-img3" class="img-fluid"/>
+                <h4>Chemistry and Camera Complex</h4>
+                <!-- <p>Web Developer</p> -->
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 
+<!-------Team End-------> 
 
 <!-------Testimonial Start------->
 <!-- <section class="testimonial section-padding" data-scroll-index='4'>
@@ -261,35 +305,35 @@
     <div class="row">
       <div class="col-md-12">
         <div class="sectioner-header text-center">
-          <h3>Frequently Asked Questions</h3>
+          <h3>Fun Facts</h3>
           <span class="line"></span>
-          <p>Sed quis nisi nisi. Proin consectetur porttitor dui sit amet viverra. Fusce sit amet lorem faucibus, vestibulum ante in, pharetra ante.</p>
+          <p>Sources - <a href="https://space-facts.com" target="_blank" rel="noopener noreferrer">space-facts.com</a></p>
         </div>
         <div class="section-content">
           <div class="row">
             <div class="col-md-6 faq-content wow fadeInUp" data-wow-delay="0.2s">
-              <h4>Nam tellus felis, dignissim quis dui ?</h4>
-              <p>Suspendisse fermentum placerat enim, at pellentesque augue. Nullam elit est, ultricies et tellus ac, euismod placerat orci. Donec commodo.</p>
+              <h4>the Sun</h4>
+              <p>The Sun is 109 times wider than the Earth and 330,000 times as massive. One million Earths could fit inside the Sun. Light from the Sun takes eight minutes to reach Earth.</p>
             </div>
             <div class="col-md-6 faq-content wow fadeInUp" data-wow-delay="0.2s">
-              <h4>Mauris scelerisque, dui non faucibus vulputate ?</h4>
-              <p>Sed tempus in neque ac rhoncus. Phasellus vehicula, erat tempor malesuada egestas, mauris tellus malesuada erat, at vestibulum nulla ex et lectus. Nullam elit est, ultricies et tellus ac, euismod placerat orci.</p>
+              <h4>the Earth</h4>
+              <p>Earth is the third planet from the Sun and is the largest of the terrestrial planets. The Earth is the only planet in our solar system not to be named after a Greek or Roman deity. The Earth was formed approximately 4.54 billion years ago and is the only known planet to support life.</p>
             </div>
             <div class="col-md-6 faq-content wow fadeInUp" data-wow-delay="0.4s">
-              <h4>Nullam elit est, ultricies et tellus ac ?</h4>
-              <p>Ut vestibulum euismod aliquet. Quisque nec malesuada nibh. Vivamus euismod nunc eu leo faucibus, vel elementum justo posuere. In sed varius nisi. Curabitur id porta ipsum, et vestibulum dui.</p>
+              <h4>the Mars</h4>
+              <p>Mars is the fourth planet from the Sun and is the second smallest planet in the solar system. Named after the Roman god of war, Mars is also often described as the “Red Planet” due to its reddish appearance. Mars is a terrestrial planet with a thin atmosphere composed primarily of carbon dioxide.</p>
             </div>
             <div class="col-md-6 faq-content wow fadeInUp" data-wow-delay="0.4s">
-              <h4>Suspendisse fermentum placerat enim, at pellentesque augue elit est ?</h4>
-              <p>Vivamus euismod nunc eu leo faucibus, vel elementum justo posuere. In sed varius nisi.</p>
+              <h4>the Moon</h4>
+              <p>The Moon (or Luna) is the Earth’s only natural satellite and was formed 4.6 billion years ago around some 30–50 million years after the formation of the solar system. The Moon is in synchronous rotation with Earth meaning the same side is always facing the Earth.</p>
             </div>
             <div class="col-md-6 faq-content wow fadeInUp" data-wow-delay="0.6s">
-              <h4>Ut vestibulum euismod aliquet. Quisque nec malesuada nibh ?</h4>
-              <p>Suspendisse fermentum placerat enim, at pellentesque augue. Nullam elit est, ultricies et tellus ac, euismod placerat orci. Donec commodo dapibus congue.</p>
+              <h4>Milky Way Galaxy</h4>
+              <p>The Milky Way began as a series of dense regions in the early universe not long after the Big Bang. The first stars to form were in globular clusters that still exist. They are among the oldest stars formed in the Milky Way region.</p>
             </div>
             <div class="col-md-6 faq-content wow fadeInUp" data-wow-delay="0.6s">
-              <h4>Donec commodo dapibus congue ?</h4>
-              <p>Nullam elit est, ultricies et tellus ac, euismod placerat orci fermentum placerat enim, at pellentesque augue. Nullam elit est, ultricies et tellus ac, euismod placerat orci. Donec commodo dapibus congue.</p>
+              <h4>the Universe</h4>
+              <p>The universe is observed to be 13.7 billion years old and has been expanding since its birth in the Big Bang. Due to this expansion, the universe is now thought to be be around 91 billion light-years across.</p>
             </div>
           </div>
         </div>
@@ -300,47 +344,10 @@
 
 <!-------FAQ End-------> 
 
-<!-------Team Start------->
-<section class="team section-padding" data-scroll-index='3'>
-  <div class="container">
-    <div class="row">
-      <div class="col-md-12">
-        <div class="sectioner-header text-center">
-          <h3>Mars Rover Curiosity Photos</h3>
-          <span class="line"></span>
-          <p class="white">Curiosity launched on Nov 26th, 2011, and landed on Aug 6th, 2012. Photos were taken on its 1000th Martian sol exploring Mars with 3 different cameras.</p>
-        </div>
-        <div class="section-content text-center" id="mars-section" style="display: none;">
-          <div class="row">
-            <div class="col-md-4">
-              <div class="team-detail wow bounce" data-wow-delay="0.2s"> <img id="mars-img1" class="img-fluid"/>
-                <h4>Front Hazard Avoidance Camera</h4>
-                <!-- <p>Marketing Specialist</p> -->
-              </div>
-            </div>
-            <div class="col-md-4">
-              <div class="team-detail wow bounce" data-wow-delay="0.4s"> <img id="mars-img2" class="img-fluid"/>
-                <h4>Rear Hazard Avoidance Camera</h4>
-                <!-- <p>CEO & Founder</p> -->
-              </div>
-            </div>
-            <div class="col-md-4">
-              <div class="team-detail wow bounce" data-wow-delay="0.6s"> <img id="mars-img3" class="img-fluid"/>
-                <h4>Chemistry and Camera Complex</h4>
-                <!-- <p>Web Developer</p> -->
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
 
-<!-------Team End-------> 
 
 <!-------Contact Start------->
-<section class="contact section-padding" data-scroll-index='6'>
+<!-- <section class="contact section-padding" data-scroll-index='6'>
   <div class="container">
     <div class="row">
       <div class="col-md-12">
@@ -399,12 +406,12 @@
       </div>
     </div>
   </div>
-</section>
+</section> -->
 
 <!-------Contact End-------> 
 
 <!-------Download End------->
-<section class="download section-padding">
+<!-- <section class="download section-padding">
   <div class="container">
     <div class="row">
       <div class="col-md-12">
@@ -424,7 +431,7 @@
       </div>
     </div>
   </div>
-</section>
+</section> -->
 
 <!-------Download End------->
 
@@ -432,7 +439,7 @@
   <div class="container-fluid">
     <div class="row">
       <div class="col-md-12">
-        <p>2018 &copy; Applight. Website Designed by <a href="http://w3Template.com" target="_blank" rel="dofollow">W3 Template</a></p>
+        <p>2024 &copy; Applight. Website Designed by Zhaoyi Yan. This app is a personal, non-commercial project.</p>
       </div>
     </div>
   </div>

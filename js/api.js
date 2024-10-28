@@ -61,8 +61,11 @@ const fetchAllMarsPhotos = async () => {
 function displayEarth(data) {
     try {
         if (data.length === 0) {
+            document.getElementById('warning-section').style.display = "block";
+
             throw new Error("No EPIC data available for the selected date.");
         }
+        document.getElementById('warning-section').style.display = "none"; 
         
         document.querySelector('.chosen-date').innerText = data[0].date;
 
@@ -87,6 +90,7 @@ function displayMedia(data){
     // Reset both sections to ensure they are hidden initially
     document.querySelector('#img-nasa').style.display = "none"; // Hide the image element
     document.querySelector('#video-section-nasa').style.display = "none"; // Hide video section
+    document.querySelector('#img-video-on-top').style.display = "none"; 
 
     if (data.media_type === 'image') {
         document.querySelector('#img-nasa').src = data.hdurl;
@@ -99,8 +103,11 @@ function displayMedia(data){
         // Show video section
         document.querySelector('#video-section-nasa').style.display = "block"; // Show video section
         
+        document.querySelector('#img-video-on-top').style.display = "block"; 
         // Auto-scroll to the top
         window.scrollTo({ top: 0, behavior: 'smooth' }); // Scroll to the top smoothly
+
+        
     }
     
     document.querySelector('#title-nasa').innerText = data.title;

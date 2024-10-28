@@ -496,7 +496,9 @@ input {
 	border-radius: 7px;
 }
 .footer-copy {
-	background: #ffffff;
+	/* background: #ffffff; */
+	background: #7a60ff;
+	background: linear-gradient(to left, #7a60ff, #cd9ffa);
 	color: #242424;
 	font-size: 13px;
 	text-align: center;
