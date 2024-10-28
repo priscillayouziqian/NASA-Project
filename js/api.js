@@ -63,6 +63,13 @@ function displayEarth(data) {
         if (data.length === 0) {
             document.getElementById('warning-section').style.display = "block";
 
+            // Clean dynamic content
+            document.querySelector('.chosen-date').innerText = ''; // Clear chosen date
+            document.getElementById('centroid-coordinates').innerHTML = ''; // Clear centroid coordinates
+            ['dscovr', 'lunar', 'sun'].forEach(key => 
+                document.querySelector(`#${key}`).innerHTML = '' // Clear each section
+            );
+
             throw new Error("No EPIC data available for the selected date.");
         }
         document.getElementById('warning-section').style.display = "none"; 
